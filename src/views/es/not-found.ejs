@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- LINKS CDN's BOOTSTRAP - FONT AWSOME - MAIN.CSS -->
+    <% include ../partials/head.ejs %>
+
+    <title><%= title %></title>
+  </head>
+  <body>
+    <div class="">
+      <!-- PARTIAL NAVBAR -->
+    </div>
+    <!-- CONTENIDO PAGINA NOT-FOUND - INICIO -->
+
+    <div class="container" style="margin-top: 5%;">
+      <div class="row">
+        <div class="col-md-12 col-md-offset-3 text-center">
+          <br />
+          <h4>Houston, Tenemos un problema!!</h4>
+          <p>
+            <img src="/img/AstronautLost.png" alt="" width="130" height="130" />
+          </p>
+
+          <h2>
+            <i class="fa fa-exclamation-triangle" style="color:red"></i> Y creo
+            que de perdiste
+          </h2>
+          <p>
+            Bueno, Esto es vergonozo :(
+            <br />
+            <small>404 error</small>
+            <br />
+          </p>
+          <p>
+            <a href="/">Click Aqui</a> y te llevo a la pagina principal
+          </p>
+
+          <p>
+            <a href="/">www.buenaventuraturistica.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENIDO PAGINA NOT-FOUND - FIN -->
+
+    <!-- PARTIAL NAVBAR -->
+    <div class="container-footer">
+      <% include ../partials/es/footer.ejs %>
+    </div>
+
+    <!--ANIMATIOON LOADER - CAMBIO DE PAGINA-->
+    <% include ../partials/loader.ejs %>
+    <!--SCRIPTS BOOTSTRAP - JQUERY - ANIMATION LOADER-->
+    <% include ../partials/scripts.ejs %>
+  </body>
+</html>

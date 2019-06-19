@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- LINKS CDN's BOOTSTRAP - FONT AWSOME - MAIN.CSS -->
+    <% include ../partials/head.ejs %>
+
+    <title><%= title %></title>
+  </head>
+  <body>
+    <span class="go-top fas fa-arrow-up"></span>
+    <!-- PARTIAL: NAVBAR -->
+    <div class="">
+      <% include ../partials/es/navbar.ejs %>
+    </div>
+
+    <!-- PARTIAL: HEADER -->
+    <div class="">
+      <% include ../partials/es/header.ejs %>
+    </div>
+
+    <div
+      class="container wow fadeInUp animated fadeIn delay-3s"
+      id="destinos-section"
+      data-aos="fade-up"
+    >
+      <hr class="mb-5 mt-4" />
+    </div>
+
+    <!--SECCION DESTINOS - INIT-->
+    <section data-aos="fade-up">
+      <div class="wow fadeInUp animated fadeIn delay-2s">
+        <h2
+          class="h1-responsive font-weight-bold my-5 text-center wow fadeInUp animated fadeIn delay-4s"
+        >
+          Nuestros Destinos
+        </h2>
+        <!-- Section description -->
+        <p
+          class="grey-text w-responsive mx-auto mb-5 text-center wow fadeInUp animated fadeIn delay-5s"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
+        </p>
+      </div>
+      <!-- PARTIAL: DESTINOS -->
+      <div class="">
+        <% include ../partials/es/destinos.ejs %>
+      </div>
+    </section>
+    <!--SECCION DESTINOS - END-->
+
+    <div
+      class="container wow fadeInUp animated fadeIn delay-3s"
+      id="quienes-section"
+      data-aos="fade-up"
+    >
+      <hr class="mb-5 mt-4" />
+    </div>
+
+    <!--SECCION QUIENES SOMOS - INIT-->
+    <section data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
+        <h2
+          class="h1-responsive font-weight-bold my-5 text-center wow fadeInUp animated fadeIn delay-5s"
+        >
+          Quienes Somos
+        </h2>
+        <!-- Section description -->
+        <p
+          class="grey-text w-responsive mx-auto mb-5 text-center wow fadeInUp animated fadeIn delay-5s"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
+        </p>
+      </div>
+      <!-- PARTIAL: ASOCIADOS -->
+      <div class="wow fadeInUp animated fadeIn delay-6s">
+        <% include ../partials/es/asociados.ejs %>
+      </div>
+
+      <div class="container wow fadeInUp animated fadeIn delay-3s">
+        <hr class="mb-5 mt-4" />
+      </div>
+
+      <!-- PARTIAL: PROPOSITOS -->
+      <div class="wow fadeInUp animated fadeIn delay-4s">
+        <% include ../partials/es/propositos.ejs %>
+      </div>
+
+      <div class="container"><hr class="mb-5 mt-4" /></div>
+
+      <!-- PARTIAL: SECTORES -->
+      <div class="wow fadeInUp animated fadeIn delay-4s">
+        <% include ../partials/es/sectores.ejs %>
+      </div>
+    </section>
+    <!--SECCION QUIENES SOMOS - END-->
+
+    <div
+      class="container wow fadeInUp animated fadeIn delay-3s"
+      id="contactanos-section"
+      data-aos="fade-up"
+    >
+      <hr class="mb-5 mt-4" />
+    </div>
+
+    <!--SECCION CONTACTENOS - INIT-->
+    <section data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
+        <h2
+          class="h1-responsive font-weight-bold text-center wow fadeInUp animated fadeIn delay-5s"
+        >
+          Contactanos
+        </h2>
+      </div>
+
+    <section>
+      <% include ../partials/es/contadores.ejs %>
+    </section>
+
+      <div class="wow fadeInUp animated fadeIn delay-4s">
+        <% include ../partials/es/contactanos.ejs %>
+      </div>
+    </section>
+    <!--SECCION CONTACTENOS - END-->
+
+    <!-- PARTIAL: FOOTER -->
+    <div class="container-footer">
+      <% include ../partials/es/footer.ejs %>
+    </div>
+
+    <!--ANIMATION LOADER-->
+    <% include ../partials/loader.ejs %>
+
+    <!--SCRIPTS BOOTSTRAP - JQUERY - ANIMATION LOADER-->
+    <% include ../partials/scripts.ejs %>
+  </body>
+</html>

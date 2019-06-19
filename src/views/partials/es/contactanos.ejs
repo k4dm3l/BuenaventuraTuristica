@@ -1,0 +1,88 @@
+<div class="container">
+  <!--Grid row-->
+  <div class="row pt-lg-5 mt-lg-5">
+    <div
+      class="col-md-6 mb-5 mt-md-0 mt-5 black-text text-center text-md-left wow fadeInLeft"
+      data-wow-delay="0.3s"
+    >
+      <div
+        id="map-container-section"
+        class="z-depth-1-half map-container-section mb-4"
+        style="height: 400px"
+      >
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3347.2984011512444!2d-77.07617411722013!3d3.8889925071529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sco!4v1559710651911!5m2!1ses-419!2sco"
+          frameborder="0"
+          style="border:0; width: 100%; height: 100%;"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="text-center">
+        <a class="btn-floating">
+          <i class="fas fa-map-marked-alt fa-3x green-text"></i>
+          <p>Descarga Nuestro Mapa</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-xl-5 mb-4 wow fadeInUp animated fadeIn delay-2s">
+
+      <div class="card animated fadeIn delay-1s">
+        <div class="card-header text-center card-bg">
+          <h3>Escribenos</h3>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="submit" class="form-signin" id="contact_form">
+            <div class="form-label-group">
+              <input
+                type="text"
+                id="name"
+                name="inputName"
+                class="form-control"
+                placeholder="Nombre"
+                required
+              />
+              <label for="inputName">Nombre Completo</label>
+            </div>
+
+            <div class="form-label-group">
+              <input
+                type="email"
+                id="email"
+                name="inputEmail"
+                class="form-control"
+                placeholder="Correo Electronico"
+                required
+              />
+              <label for="inputEmail">Correo Electronico</label>
+            </div>
+
+            <div class="form-label-group">
+              <textarea
+                class="form-control textarea-size"
+                id="text"
+                name="inputText"
+                placeholder="Cuentanos tu historia"
+                cols="25"
+                rows="5"
+              ></textarea>
+            </div>
+            <div class="form-label-group justify-content-center">
+              <div
+                class="g-recaptcha"
+                data-sitekey="6LerkacUAAAAAHKyt4jXp-OjrbSsASKWuwpj8NSx"
+              ></div>
+            </div>
+            <div class="form-label-group">
+              <button class="btn btn1 btn-large btn-block" type="submit">
+                Enviar
+              </button>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -497,10 +497,10 @@ ARROW TOP
 /**
 * CARD TEXT FONT-SIZE
 */
-.card-title my-4 {
+.card-title-size {
   font-size: 0.90rem !important;
 }
 
-.text-muted {
+.text-muted-size {
   font-size: 0.90rem !important;
 }

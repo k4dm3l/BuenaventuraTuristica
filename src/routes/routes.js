@@ -4,6 +4,7 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const sendMail = require("../utilities/mail");
+const agenda_turistica = require("../utilities/json/agenda_turistica");
 const request = require("request");
 
 dotenv.config();
@@ -12,16 +13,30 @@ const router = express.Router();
  * REST API's - (Rutas Servidor) *
  * *******************************/
 
-/**GET
+/*********************************
+ * GET
  * Route / = index.ejs *
- */
+ **********************************/
 router.get("/", (req, res) => {
   res.render("es/index.ejs", { title: "BuenaventuraTuristica" });
 });
 
-/**POST
+/*********************************
+ * GET
+ * Route / = agenda.ejs *
+ **********************************/
+router.get("/agenda-cultural", (req, res) => {
+  res.render("es/agenda.ejs", 
+  {
+    title: "BuenaventuraTuristica",
+    agenda_turistica
+  });
+});
+
+/*********************************
+ * POST
  * Route / = Envio Contactenos *
- */
+ **********************************/
 router.post('/submit', (req, res) => {
   const { name, email, text, captcha } = req.body;
   const url_p = "http://localhost:4000";
@@ -35,9 +50,7 @@ router.post('/submit', (req, res) => {
     //API Secret Key
     const secretKey = "6LerkacUAAAAAB_A1zDFigEkYqxg6opoBFpA8CMw";
     //URL de verificacion
-    const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${
-      req.body.captcha
-    }&remoteip=${req.connection.remoteAddress}`;
+    const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.captcha}&remoteip=${req.connection.remoteAddress}`;
 
     request(verificationURL, (error, response, body) => {
       if(body.success !== undefined && !body.success){

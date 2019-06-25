@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- LINKS CDN's BOOTSTRAP - FONT AWSOME - MAIN.CSS -->
+    <% include ../partials/head.ejs %>
+
+    <title><%= title %></title>
+  </head>
+  <body>
+    <span class="go-top fas fa-arrow-up"></span>
+    <!-- PARTIAL: NAVBAR -->
+    <div class="">
+      <% include ../partials/es/navbar.ejs %>
+    </div>
+
+    <!-- PARTIAL: HEADER -->
+    <div class="">
+      <% include ../partials/es/header.ejs %>
+    </div>
+
+    <!-- CUERPO CODIGO: INIT -->
+    <div class="container">
+
+        <% for(i in agenda_turistica) {%>
+            
+            <h2 class="h1-responsive font-weight-bold text-center my-5">
+                <%= agenda_turistica[i].month_name %>
+            </h2>
+
+            <div class="row">
+            <% for(j in agenda_turistica[i].events) {%>
+
+                <div class="col-4 pt-4">
+                <!-- Card Light -->
+                <div class="card">
+
+                <!-- Card image -->
+                <div class="view overlay">
+                <img class="card-img-top" src="<%= agenda_turistica[i].events[j].img_Url %>" alt="Card image cap">
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+                </div>
+      
+                <!-- Card content -->
+                <div class="card-body">
+            
+                <!-- Social shares button 
+                <a class="activator waves-effect waves-light mr-4"><i class="fas fa-share-alt"></i></a>-->
+                <!-- Title -->
+                <h4 class="card-title"><%= agenda_turistica[i].events[j].name_event %></h4>
+                <hr>
+                <!-- Text -->
+                <p class="card-text"><%= agenda_turistica[i].events[j].date_event %></p>
+                <p class="card-text"><%= agenda_turistica[i].events[j].desc_event %></p>
+                <!-- Link 
+                <a href="#!" class="black-text d-flex justify-content-end"><h5>Read more <i class="fas fa-angle-double-right"></i></h5></a>-->
+            
+                </div>
+      
+                </div>
+                <!-- Card Light -->
+                </div>
+
+            <% } %>
+            </div>
+        <% } %>
+
+    </div>
+    <!-- CUERPO CODIGO: END -->
+
+    <!-- PARTIAL: FOOTER -->
+    <div class="container-footer">
+      <% include ../partials/es/footer.ejs %>
+    </div>
+
+    <!--ANIMATION LOADER-->
+    <% include ../partials/loader.ejs %>
+
+    <!--SCRIPTS BOOTSTRAP - JQUERY - ANIMATION LOADER-->
+    <% include ../partials/scripts.ejs %>
+  </body>
+</html>

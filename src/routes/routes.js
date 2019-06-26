@@ -4,8 +4,13 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const sendMail = require("../utilities/mail");
-const agenda_turistica = require("../utilities/json/agenda_turistica");
 const request = require("request");
+
+/*******************
+ * JSON Data Files *
+ * *****************/
+const asociados = require("../utilities/json/asociados");
+const agenda_turistica = require("../utilities/json/agenda_turistica");
 
 dotenv.config();
 const router = express.Router();
@@ -18,7 +23,11 @@ const router = express.Router();
  * Route / = index.ejs *
  **********************************/
 router.get("/", (req, res) => {
-  res.render("es/index.ejs", { title: "BuenaventuraTuristica" });
+  res.render("es/index.ejs", 
+  { 
+    title: "BuenaventuraTuristica",
+    asociados 
+  });
 });
 
 /*********************************
@@ -39,7 +48,7 @@ router.get("/agenda-cultural", (req, res) => {
  **********************************/
 router.post('/submit', (req, res) => {
   const { name, email, text, captcha } = req.body;
-  const url_p = "http://localhost:4000";
+  const url_p = "http://localhost:4000";//URL Debe cambiar por el dominio
 
   if(captcha === undefined || captcha === "" || captcha === null){
     return res.json({

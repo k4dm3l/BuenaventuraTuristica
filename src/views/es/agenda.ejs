@@ -14,12 +14,12 @@
     <span class="go-top fas fa-arrow-up"></span>
     <!-- PARTIAL: NAVBAR -->
     <div class="">
-      <% include ../partials/es/navbar.ejs %>
+      <% include ../partials/es/navbar_alt.ejs %>
     </div>
 
     <!-- PARTIAL: HEADER -->
     <div class="">
-      <% include ../partials/es/header.ejs %>
+      <% include ../partials/es/header_alt.ejs %>
     </div>
 
     <!-- CUERPO CODIGO: INIT -->
@@ -27,11 +27,11 @@
 
         <% for(i in agenda_turistica) {%>
             
-            <h2 class="h1-responsive font-weight-bold text-center my-5">
+            <h2 class="h1-responsive font-weight-bold text-center my-5 wow fadeInUp animated fadeIn delay-2s">
                 <%= agenda_turistica[i].month_name %>
             </h2>
 
-            <div class="row">
+            <div class="row wow fadeInUp animated fadeIn delay-2s">
             <% for(j in agenda_turistica[i].events) {%>
 
                 <div class="col-4 pt-4">

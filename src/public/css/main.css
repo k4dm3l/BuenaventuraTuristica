@@ -1,7 +1,7 @@
 /*************
 **CUSTOM CSS**
 **************/
-html {
+* {
   scroll-behavior: smooth;
 }
 
@@ -133,7 +133,7 @@ section .section-title {
 }
 
 /*
-**NAVBAR TRANSPARENT
+**NAVBAR
 
 .header {
   background: url(../img/bg1.jpg) no-repeat center;
@@ -170,6 +170,10 @@ section .section-title {
 .scrolldown-navbar-background {
   background: rgba(15, 124, 115, 0.699) !important;
   color: #fff;
+}
+
+.navbar-fontsize {
+  font-size: 0.9rem;
 }
 
 /*

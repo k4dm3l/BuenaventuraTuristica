@@ -1,7 +1,6 @@
 /*****************************
  * Requerimientos de Modulos *
  * ***************************/
-const dotenv = require("dotenv");
 const express = require("express");
 const sendMail = require("../utilities/mail");
 const request = require("request");
@@ -12,7 +11,6 @@ const request = require("request");
 const asociados = require("../utilities/json/asociados");
 const agenda_turistica = require("../utilities/json/agenda_turistica");
 
-dotenv.config();
 const router = express.Router();
 /*********************************
  * REST API's - (Rutas Servidor) *
@@ -57,7 +55,7 @@ router.post('/submit', (req, res) => {
     });
   } else {
     //API Secret Key
-    const secretKey = "6LerkacUAAAAAB_A1zDFigEkYqxg6opoBFpA8CMw";
+    const secretKey = process.env.API_KEY;
     //URL de verificacion
     const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.captcha}&remoteip=${req.connection.remoteAddress}`;
 

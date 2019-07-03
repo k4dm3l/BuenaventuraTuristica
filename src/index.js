@@ -1,19 +1,24 @@
 /***************************** 
  * Requerimientos de Modulos *
  * ***************************/
-require('dotenv').config();
+require('dotenv').config({path: __dirname + '/.env'});
 const express = require("express");
 const path = require('path'); //manejo de rutas SO del server
 const bodyParser = require('body-parser');
 const flash = require('express-flash');
 const session = require('express-session');
 
+/**************************** 
+ * Declaracion de variables *
+ * **************************/
 const app = express();
+const PORT = process.env.PORT || 4000;
+
 /***************************************************************************/
 /********************************** 
- * Declaracion Variables Globales *
+ * Setteo Variables Globales *
  * ********************************/
-app.set('port', 4000); //Se establece el puerto del servidor
+app.set('port', PORT); //Se establece el puerto del servidor
 app.set('views', path.join(__dirname, 'views'));//obtener ruta de los archivos de las vistas (views)
 app.set('view engine', 'ejs');//indicar motor de plantillas
 

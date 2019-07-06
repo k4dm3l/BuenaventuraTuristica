@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- LINKS CDN's BOOTSTRAP - FONT AWSOME - MAIN.CSS -->
+    <% include ../partials/head.ejs %>
+
+    <title><%= title %></title>
+  </head>
+  <body>
+    <span class="go-top fas fa-arrow-up"></span>
+    <!-- PARTIAL: NAVBAR -->
+    <div class="">
+      <% include ../partials/es/navbar_alt.ejs %>
+    </div>
+
+    <!-- PARTIAL: HEADER -->
+    <div class="">
+      <% include ../partials/es/header_alt.ejs %>
+    </div>
+
+    <!-- CUERPO CODIGO: INIT -->
+
+    <h2 class="h1-responsive font-weight-bold text-center my-5">Planes Turisticos</h2>
+  <!-- Section description -->
+  <p class="text-center w-responsive mx-auto mb-5">Encuentra aqui todos nuestros planes turisticos.</p>
+
+    <div class="container">
+
+    <% for(i in planes_turisticos) { %> 
+        
+        <% if( (i % 2) === 0 ) { %>
+
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-lg-5">
+        <!-- Featured image -->
+        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+          <img
+            class="img-fluid"
+            src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg"
+            alt="Sample image"
+          />
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-lg-7">
+        <!-- Category -->
+        <a href="#!" class="green-text">
+          <h6 class="font-weight-bold mb-3">
+            <i class="fas fa-utensils pr-2"></i><%=planes_turisticos[i].plan_category%>
+          </h6>
+        </a>
+        <!-- Post title -->
+        <h3 class="font-weight-bold mb-3">
+          <strong><%=planes_turisticos[i].plan_title%></strong>
+        </h3>
+        <!-- Excerpt -->
+        <p>
+          Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+          impedit quo minus id quod maxime placeat facere possimus, omnis
+          voluptas assumenda est, omnis dolor repellendus et aut officiis
+          debitis.
+        </p>
+        <!-- Read more button -->
+        <a class="btn btn-success btn-md">Solicitar</a>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+
+    <% } %>
+
+        <% if ( (i % 2) !== 0 ) { %>
+
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-lg-7">
+        <!-- Category -->
+        <a href="#!" class="pink-text">
+          <h6 class="font-weight-bold mb-3">
+            <i class="fas fa-image pr-2"></i><%=planes_turisticos[i].plan_category%>
+          </h6>
+        </a>
+        <!-- Post title -->
+        <h3 class="font-weight-bold mb-3">
+          <strong><%=planes_turisticos[i].plan_title%></strong>
+        </h3>
+        <!-- Excerpt -->
+        <p>
+          At vero eos et accusamus et iusto odio dignissimos ducimus qui
+          blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
+          et quas molestias excepturi sint occaecati cupiditate non provident.
+        </p>
+        <!-- Read more button -->
+        <a class="btn btn-pink btn-md mb-lg-0 mb-4">Solicitar</a>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-lg-5">
+        <!-- Featured image -->
+        <div class="view overlay rounded z-depth-2">
+          <img
+            class="img-fluid"
+            src="https://mdbootstrap.com/img/Photos/Others/img%20(34).jpg"
+            alt="Sample image"
+          />
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+
+    <% } %>
+
+    <hr class="my-5" />
+    <script>console.log(i)</script>
+
+    <% } %>
+
+    </div>
+    <!-- CUERPO CODIGO: END -->
+
+    <!-- PARTIAL: FOOTER -->
+    <div class="container-footer">
+      <% include ../partials/es/footer.ejs %>
+    </div>
+
+    <!--ANIMATION LOADER-->
+    <% include ../partials/loader.ejs %>
+
+    <!--SCRIPTS BOOTSTRAP - JQUERY - ANIMATION LOADER-->
+    <% include ../partials/scripts.ejs %>
+  </body>
+</html>

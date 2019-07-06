@@ -10,11 +10,16 @@ const request = require("request");
  * *****************/
 const asociados = require("../utilities/json/asociados");
 const agenda_turistica = require("../utilities/json/agenda_turistica");
+const planes_turisticos = require("../utilities/json/planes_turisticos");
 
-const router = express.Router();
 /*********************************
  * REST API's - (Rutas Servidor) *
  * *******************************/
+const router = express.Router();
+
+/********************************
+ *        GET REQUESTS          *
+*********************************/
 
 /*********************************
  * GET
@@ -28,17 +33,35 @@ router.get("/", (req, res) => {
   });
 });
 
-/*********************************
+/**************************************
  * GET
- * Route / = agenda.ejs *
- **********************************/
+ * Route /agenda-cultura = agenda.ejs *
+ **************************************/
 router.get("/agenda-cultural", (req, res) => {
   res.render("es/agenda.ejs", 
   {
     title: "BuenaventuraTuristica",
+    header_title: "Conoce nuestra agenda!",
     agenda_turistica
   });
 });
+
+/****************************************************
+ * GET
+ * Route /planes-tursiticos = planes_turisticos.ejs *
+ ****************************************************/
+router.get("/planes-turisticos", (req, res) => {
+  res.render("es/planes_turisticos.ejs",
+  {
+    title: "BuenaventuraTuristica",
+    header_title: "Conoce nuestros planes!",
+    planes_turisticos
+  });
+});
+
+/********************************
+ *        POST REQUESTS         *
+*********************************/
 
 /*********************************
  * POST

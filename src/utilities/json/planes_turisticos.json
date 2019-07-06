@@ -1,0 +1,22 @@
+[
+    {
+        "plan_title": "Plan 1",
+        "plan_description": "Here i put the plan description, and bla bla bla",
+        "plan_category": "Comida"
+    },
+    {
+        "plan_title": "Plan 2",
+        "plan_description": "Here i put the 2nd plan description, and just bla",
+        "plan_category": "Viaje"
+    },
+    {
+        "plan_title": "Plan 3",
+        "plan_description": "Here i put the 2nd plan description, and just bla",
+        "plan_category": "Fiesta"
+    },
+    {
+        "plan_title": "Plan 4",
+        "plan_description": "Here i put the 2nd plan description, and just bla",
+        "plan_category": "Fiesta"
+    }
+]

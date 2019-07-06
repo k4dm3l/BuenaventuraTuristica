@@ -395,8 +395,8 @@ ARROW TOP
   color: #fff;
   cursor: pointer;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 100px;
+  right: 30px;
   z-index: 100;
   border-radius: 50%;
   border: 1px solid #25C6F3;

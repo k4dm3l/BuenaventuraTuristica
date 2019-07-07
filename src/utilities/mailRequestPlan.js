@@ -13,11 +13,10 @@ const transporter = nodemailer.createTransport(mailGun(auth));
 /******************************
  * SEND MAIL PLAN REQUEST FORM *
  *******************************/
-
-const sendMailPlanRequest = (name, email, plan_name, callback) => {
+const sendMailP = (name, email, plan_name, callback) => {
     const mailOptions = {
       from: "corpbuntur@gmail.com",
-      to: `corpbuntur@gmail.com, ${email}`,
+      to: `corpbuntur@gmail.com`,
       subject: `Solicitud informacion plan turistico - ${plan_name}`,
       html: `
       <html>
@@ -152,13 +151,14 @@ const sendMailPlanRequest = (name, email, plan_name, callback) => {
       `
     };
   
-    transporter.sendMailPlanRequest(mailOptions, (err, data) => {
+    transporter.sendMail(mailOptions, (err, data) => {
       if (err) {
         callback(err, null);
+        console.log(err);
       } else {
         callback(null, data);
       }
     });
   };
 
-  module.exports = sendMailPlanRequest;
+  module.exports = sendMailP;

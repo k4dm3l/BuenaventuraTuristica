@@ -3,7 +3,7 @@
  * ***************************/
 const express = require("express");
 const sendMail = require("../utilities/mail");
-const sendMailPlanRequest = require("../utilities/mailRequestPlan");
+const sendMailP = require("../utilities/mailRequestPlan");
 const request = require("request");
 
 /*******************
@@ -110,22 +110,22 @@ router.post('/submit', (req, res) => {
  * Route / = Envio Solicitud Plan Turistico *
  ****************************************/
 
- router.post("/plan", (req, res) => {
+ router.post("/plan-request", (req, res) => {
   const { name, email, plan_selected } = req.body;
-  
   const url_p = "http://localhost:4000";//URL Debe cambiar por el dominio
-  console.log(req.body);
-  console.log(`${name} - ${email} - ${plan_selected}`);
-  /* 
-  if(email_ === undefined || email_ === "" || email_ === null) {
+  
+  if(email === undefined || email === "" || email === null) {
     return res.json({
       success: false,
       url: url_p
     });
   } else {
-    sendMailPlanRequest(name, email_, plan_selected, (err, data) => {
+    sendMailP(name, email, plan_selected, (err, data) => {
       if(err){
-        res.status(500).redirect('/');
+        return res.json({ 
+          success: false, 
+          url: url_p
+        });
       } else {
         return res.json({ 
           success: true, 
@@ -133,7 +133,7 @@ router.post('/submit', (req, res) => {
         });
       }
     });
-  } */
+  }
 });
 
 /*******************************************

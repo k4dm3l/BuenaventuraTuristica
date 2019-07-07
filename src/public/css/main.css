@@ -419,3 +419,17 @@ ARROW TOP
 .text-muted-size {
   font-size: 0.90rem !important;
 }
+
+/**
+* MODAL PLAN TURISTICO
+*/
+.modal-notify .modal-header {
+  border-radius: 3px 3px 0 0;
+}
+.modal-notify .modal-content {
+  border-radius: 3px;
+}
+
+.modal-header {
+  background-color: #11998e!important;
+}

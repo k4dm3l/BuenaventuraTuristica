@@ -3,6 +3,7 @@
  * ***************************/
 const express = require("express");
 const sendMail = require("../utilities/mail");
+const sendMailPlanRequest = require("../utilities/mailRequestPlan");
 const request = require("request");
 
 /*******************
@@ -78,7 +79,7 @@ router.post('/submit', (req, res) => {
     });
   } else {
     //API Secret Key
-    const secretKey = process.env.API_KEY;
+    const secretKey = process.env.API_KEY_CAPTCHA;
     //URL de verificacion
     const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.captcha}&remoteip=${req.connection.remoteAddress}`;
 
@@ -93,12 +94,46 @@ router.post('/submit', (req, res) => {
           if(err){
             res.status(500).redirect('/');
           } else {
-            return res.json({ success: true, url: url_p});
+            return res.json({ 
+              success: true, 
+              url: url_p
+            });
           }
         });
       }
     });
   }
+});
+
+/********************************************
+ * POST
+ * Route / = Envio Solicitud Plan Turistico *
+ ****************************************/
+
+ router.post("/plan", (req, res) => {
+  const { name, email, plan_selected } = req.body;
+  
+  const url_p = "http://localhost:4000";//URL Debe cambiar por el dominio
+  console.log(req.body);
+  console.log(`${name} - ${email} - ${plan_selected}`);
+  /* 
+  if(email_ === undefined || email_ === "" || email_ === null) {
+    return res.json({
+      success: false,
+      url: url_p
+    });
+  } else {
+    sendMailPlanRequest(name, email_, plan_selected, (err, data) => {
+      if(err){
+        res.status(500).redirect('/');
+      } else {
+        return res.json({ 
+          success: true, 
+          url: url_p
+        });
+      }
+    });
+  } */
 });
 
 /*******************************************

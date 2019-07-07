@@ -2,20 +2,23 @@ const nodemailer = require("nodemailer");
 const mailGun = require("nodemailer-mailgun-transport");
 
 const auth = {
-    auth: {
-        api_key: '6bbd9f6cb74cfcd8169d8251725d9216-16ffd509-6160defe',
-        domain: 'sandbox5a2010837ce84773a030fe71706df195.mailgun.org'
-    }
+  auth: {
+    api_key: process.env.API_KEY_MAILGUN,
+    domain: "sandbox5a2010837ce84773a030fe71706df195.mailgun.org"
+  }
 };
 
 const transporter = nodemailer.createTransport(mailGun(auth));
 
+/*************************
+ * SEND MAIL CONTACT FORM *
+ **************************/
 const sendMail = (name, email, text, callback) => {
-    const mailOptions = {
-        from: 'corpbuntur@gmail.com',
-        to: 'corpbuntur@gmail.com',
-        subject: `Nuevo mensaje de ${email} - Sitio Web`,
-        html: `
+  const mailOptions = {
+    from: "corpbuntur@gmail.com",
+    to: "corpbuntur@gmail.com",
+    subject: `Nuevo mensaje de ${email} - Sitio Web`,
+    html: `
         <html>
         <head>
         <link
@@ -120,9 +123,9 @@ u + .em_body .em_full_wrap { width:100% !important; width:100vw !important;}
               <tr>
                 <td align="center" valign="top"><table width="250" style="width:250px; background-color:#6bafb2; border-radius:4px;" border="0" cellspacing="0" cellpadding="0" align="center">
                   <tr>
-                    <td class="em_grey" align="center" valign="top" style="font-family: Arial, sans-serif; font-size: 16px; line-height: 26px; color:#fff; font-style:bold">${ name }
+                    <td class="em_grey" align="center" valign="top" style="font-family: Arial, sans-serif; font-size: 16px; line-height: 26px; color:#fff; font-style:bold">${name}
                     <br class="em_hide" />
-                    ${ email }</td>
+                    ${email}</td>
                   </tr>
                 </table>
                 </td>
@@ -131,7 +134,7 @@ u + .em_body .em_full_wrap { width:100% !important; width:100vw !important;}
                 <td height="25" style="height:25px;" class="em_h20">&nbsp;</td>
               </tr>
               <tr>
-                <td class="em_grey" align="center" valign="top" style="font-family: Arial, sans-serif; font-size: 16px; line-height: 26px; color:#434343;">${ text }</td>
+                <td class="em_grey" align="center" valign="top" style="font-family: Arial, sans-serif; font-size: 16px; line-height: 26px; color:#434343;">${text}</td>
               </tr>
               <tr>
                 <td height="44" style="height:44px;" class="em_h20">&nbsp;</td>
@@ -146,16 +149,15 @@ u + .em_body .em_full_wrap { width:100% !important; width:100vw !important;}
 </body>
 </html>
         `
-    };
-    
-    transporter.sendMail(mailOptions, (err, data) => {
-        if(err){
-            callback(err, null);
-        } else {
-            callback(null, data);
-        }
-    });
-    
+  };
+
+  transporter.sendMail(mailOptions, (err, data) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
 };
 
 module.exports = sendMail;

@@ -175,35 +175,6 @@ let plan_selected;
   function getPlanName(element){
     plan_selected = element.value;
   }
-
-  function reload(url) {
-    window.location.href = url;
-  }
-
-  function sweetalert(status, url) {
-    if (status) {
-      Swal.fire({
-        type: "success",
-        title: "Genial...",
-        text: "Mensaje Enviado..",
-        confirmButtonColor: "#3085d6",
-        confirmButtonText: "Continuar"
-      }).then(result => {
-        if (result.value) {
-          reload(url);
-        } else {
-          reload(url);
-        }
-      });
-    } else {
-      Swal.fire({
-        type: "error",
-        title: "Oops...",
-        text: "Algo Fallo!"
-      });
-    }
-  }
-
   document.getElementById("plan_form").addEventListener("submit", sendPlanRequest);
 
   function sendPlanRequest(e) {
@@ -211,6 +182,7 @@ let plan_selected;
 
     const name = document.querySelector("#name_X").value;
     const email = document.querySelector("#email_X").value;
+    console.log(plan_selected);
 
     const data = {
       name,
@@ -240,3 +212,32 @@ let plan_selected;
         }
       });
   }
+/** 
+  function reload(url) {
+    window.location.href = url;
+  }
+
+  function sweetalert(status, url) {
+    if (status) {
+      Swal.fire({
+        type: "success",
+        title: "Genial...",
+        text: "Mensaje Enviado..",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Continuar"
+      }).then(result => {
+        if (result.value) {
+          reload(url);
+        } else {
+          reload(url);
+        }
+      });
+    } else {
+      Swal.fire({
+        type: "error",
+        title: "Oops...",
+        text: "Algo Fallo!"
+      });
+    }
+  }
+*/

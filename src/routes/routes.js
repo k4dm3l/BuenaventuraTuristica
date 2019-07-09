@@ -70,7 +70,7 @@ router.get("/planes-turisticos", (req, res) => {
  **********************************/
 router.post('/submit', (req, res) => {
   const { name, email, text, captcha } = req.body;
-  const url_p = "https://www.buenaventura.com";
+  const url_p = "https://www.buenaventuraturistica.com";
 
   if(captcha === undefined || captcha === "" || captcha === null){
     return res.json({
@@ -112,8 +112,8 @@ router.post('/submit', (req, res) => {
 
  router.post("/plan-request", (req, res) => {
   const { name, email, plan_selected } = req.body;
-  const url_p = "https://www.buenaventura.com";
-  
+  const url_p = "https://www.buenaventuraturistica.com";
+
   if(email === undefined || email === "" || email === null) {
     return res.json({
       success: false,

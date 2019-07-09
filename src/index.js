@@ -8,17 +8,32 @@ const bodyParser = require('body-parser');
 const flash = require('express-flash');
 const session = require('express-session');
 
+const http = require('http');
+const https = require('https');
+const fs = require('fs');
+
 /**************************** 
  * Declaracion de variables *
  * **************************/
+const hostname = 'buenaventuraturistica.com';
+const httpPort = 80;
+const httpsPort = 443;
+
+const httpsOptions = {
+    cert: fs.readFileSync('./ssl/buenaventuraturistica_com.crt'),
+    ca: fs.readFileSync('./ssl/buenaventuraturistica_com.ca-bundle'),
+    key: fs.readFileSync('./ssl/buenaventuraturistica.key')
+}
+
 const app = express();
-const PORT = process.env.PORT || 80;
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(httpsOptions, app);
 
 /***************************************************************************/
 /********************************** 
  * Setteo Variables Globales *
  * ********************************/
-app.set('port', PORT); //Se establece el puerto del servidor
+//app.set('port', httpsPort); //Se establece el puerto del servidor
 app.set('views', path.join(__dirname, 'views'));//obtener ruta de los archivos de las vistas (views)
 app.set('view engine', 'ejs');//indicar motor de plantillas
 
@@ -42,6 +57,12 @@ app.use(session({
     resave: true
 }));
 app.use(flash());
+app.use((req, res, next) => {
+    if(req.protocol === 'http'){
+        res.redirect(301, `https://${req.headers.host}${req.url}`);
+    }
+    next();
+});
 
 /***************************************************************************/
 /********************** 
@@ -61,7 +82,13 @@ app.use(function(req, res){
 /********************** 
  * Ejecucion Servidor *
  * ********************/
+httpServer.listen(httpPort, hostname);
+httpsServer.listen(httpsPort, hostname);
+
+/** 
 app.listen(app.get('port'), () => {
     console.log("Servidor Corriendo ", app.get('port'));
 });
+*/
+
 /***************************************************************************/

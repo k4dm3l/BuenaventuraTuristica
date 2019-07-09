@@ -12,7 +12,7 @@ const session = require('express-session');
  * Declaracion de variables *
  * **************************/
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = 80 || process.env.PORT;
 
 /***************************************************************************/
 /********************************** 

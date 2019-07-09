@@ -82,13 +82,11 @@ app.use(function(req, res){
 /********************** 
  * Ejecucion Servidor *
  * ********************/
-httpServer.listen(httpPort, hostname);
-httpsServer.listen(httpsPort, hostname);
-
-/** 
-app.listen(app.get('port'), () => {
-    console.log("Servidor Corriendo ", app.get('port'));
+httpServer.listen(httpPort, hostname, () => {
+    console.log(`Server Instance Running ${httpPort}...`);
 });
-*/
+httpsServer.listen(httpsPort, hostname, () => {
+    console.log(`Server Instance Running ${httpsPort}...`);
+});
 
 /***************************************************************************/

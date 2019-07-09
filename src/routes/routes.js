@@ -70,7 +70,7 @@ router.get("/planes-turisticos", (req, res) => {
  **********************************/
 router.post('/submit', (req, res) => {
   const { name, email, text, captcha } = req.body;
-  const url_p = "http://localhost:4000";//URL Debe cambiar por el dominio
+  const url_p = "https://www.buenaventura.com";
 
   if(captcha === undefined || captcha === "" || captcha === null){
     return res.json({
@@ -112,7 +112,7 @@ router.post('/submit', (req, res) => {
 
  router.post("/plan-request", (req, res) => {
   const { name, email, plan_selected } = req.body;
-  const url_p = "http://localhost:4000";//URL Debe cambiar por el dominio
+  const url_p = "https://www.buenaventura.com";
   
   if(email === undefined || email === "" || email === null) {
     return res.json({

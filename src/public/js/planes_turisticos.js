@@ -1,7 +1,6 @@
 /************************************************
  *  JS - TURISTIC PLAN REQUEST MODAL EMAIL SCRIPT *
  **************************************************/
-alert("Hola");
 var plan_selected;
 
   function getPlanName(element){

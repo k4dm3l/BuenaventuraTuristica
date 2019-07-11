@@ -29,6 +29,8 @@ const app = express();
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(httpsOptions, app);
 
+
+
 /***************************************************************************/
 /********************************** 
  * Setteo Variables Globales *
@@ -37,13 +39,19 @@ const httpsServer = https.createServer(httpsOptions, app);
 app.set('views', path.join(__dirname, 'views'));//obtener ruta de los archivos de las vistas (views)
 app.set('view engine', 'ejs');//indicar motor de plantillas
 
+/**
+ * TEST EN LOCAL
+ * app.set('port', 4000);
+ *  */
+
 /***************************************************************************/
 /********************** 
  * Archivos Estaticos *
  * ********************/
 app.use(express.static(path.join(__dirname, 'public')));
 
-/*************** 
+/***************************************************************************/
+/***************
  * MiddleWares *
  * *************/
 app.use(bodyParser.json());
@@ -57,6 +65,12 @@ app.use(session({
     resave: true
 }));
 app.use(flash());
+
+/**
+ *  Middleware 
+ *  Valida si se intenta ingresar a la pagina sin SSH y en caso
+ *  tal, redirige al visitante  
+ * */
 app.use((req, res, next) => {
     if(req.protocol === 'http'){
         res.redirect(301, `https://${req.headers.host}${req.url}`);
@@ -82,11 +96,18 @@ app.use(function(req, res){
 /********************** 
  * Ejecucion Servidor *
  * ********************/
+
 httpServer.listen(httpPort, hostname, () => {
     console.log(`Server Instance Running ${httpPort}...`);
 });
 httpsServer.listen(httpsPort, hostname, () => {
     console.log(`Server Instance Running ${httpsPort}...`);
 });
+
+/* TEST EN LOCAL
+app.listen(app.get('port'), () => {
+    console.log("Servidor Corriendo ", app.get('port'));
+});
+*/
 
 /***************************************************************************/

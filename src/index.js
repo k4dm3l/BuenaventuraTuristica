@@ -19,7 +19,9 @@ const hostname = 'buenaventuraturistica.com';
 const httpPort = 80;
 const httpsPort = 443;
 
-
+/************************************ 
+ * JSON para config certificado SSL *
+ * **********************************/
 const httpsOptions = {
     cert: fs.readFileSync(path.resolve('src/ssl/buenaventuraturistica_com.crt')),
     ca: fs.readFileSync(path.resolve('src/ssl/buenaventuraturistica_com.ca-bundle')),
@@ -29,8 +31,6 @@ const httpsOptions = {
 const app = express();
 const httpServer = http.createServer(app);
 const httpsServer = https.createServer(httpsOptions, app);
-
-
 
 /***************************************************************************/
 /********************************** 
@@ -44,7 +44,6 @@ app.set('view engine', 'ejs');//indicar motor de plantillas
  * TEST EN LOCAL*  */
 //app.set('port', 4000);
  
-
 /***************************************************************************/
 /********************** 
  * Archivos Estaticos *

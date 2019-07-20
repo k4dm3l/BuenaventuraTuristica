@@ -15,19 +15,19 @@ const fs = require('fs');
 /**************************** 
  * Declaracion de variables *
  * **************************/
-const hostname = 'buenaventuraturistica.com';
-const httpPort = 80;
-const httpsPort = 443;
+//const hostname = 'buenaventuraturistica.com';
+//const httpPort = 80;
+//const httpsPort = 443;
 
-const httpsOptions = {
-    cert: fs.readFileSync('./ssl/buenaventuraturistica_com.crt'),
-    ca: fs.readFileSync('./ssl/buenaventuraturistica_com.ca-bundle'),
-    key: fs.readFileSync('./ssl/buenaventuraturistica.key')
-}
+//const httpsOptions = {
+//    cert: fs.readFileSync('./ssl/buenaventuraturistica_com.crt'),
+//    ca: fs.readFileSync('./ssl/buenaventuraturistica_com.ca-bundle'),
+//    key: fs.readFileSync('./ssl/buenaventuraturistica.key')
+//}
 
 const app = express();
-const httpServer = http.createServer(app);
-const httpsServer = https.createServer(httpsOptions, app);
+//const httpServer = http.createServer(app);
+//const httpsServer = https.createServer(httpsOptions, app);
 
 
 
@@ -40,9 +40,9 @@ app.set('views', path.join(__dirname, 'views'));//obtener ruta de los archivos d
 app.set('view engine', 'ejs');//indicar motor de plantillas
 
 /**
- * TEST EN LOCAL
- * app.set('port', 4000);
- *  */
+ * TEST EN LOCAL*  */
+ app.set('port', 4000);
+ 
 
 /***************************************************************************/
 /********************** 
@@ -71,12 +71,12 @@ app.use(flash());
  *  Valida si se intenta ingresar a la pagina sin SSH y en caso
  *  tal, redirige al visitante  
  * */
-app.use((req, res, next) => {
-    if(req.protocol === 'http'){
-        res.redirect(301, `https://${req.headers.host}${req.url}`);
-    }
-    next();
-});
+//app.use((req, res, next) => {
+//    if(req.protocol === 'http'){
+//        res.redirect(301, `https://${req.headers.host}${req.url}`);
+//    }
+//    next();
+//});
 
 /***************************************************************************/
 /********************** 
@@ -97,17 +97,17 @@ app.use(function(req, res){
  * Ejecucion Servidor *
  * ********************/
 
-httpServer.listen(httpPort, hostname, () => {
-    console.log(`Server Instance Running ${httpPort}...`);
-});
-httpsServer.listen(httpsPort, hostname, () => {
-    console.log(`Server Instance Running ${httpsPort}...`);
-});
+//httpServer.listen(httpPort, hostname, () => {
+//    console.log(`Server Instance Running ${httpPort}...`);
+//});
+//httpsServer.listen(httpsPort, hostname, () => {
+//    console.log(`Server Instance Running ${httpsPort}...`);
+//});
 
-/* TEST EN LOCAL
+/* TEST EN LOCAL*/
 app.listen(app.get('port'), () => {
     console.log("Servidor Corriendo ", app.get('port'));
 });
-*/
+
 
 /***************************************************************************/

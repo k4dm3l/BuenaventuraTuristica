@@ -19,16 +19,16 @@ const hostname = 'buenaventuraturistica.com';
 const httpPort = 80;
 const httpsPort = 443;
 
-/*
+
 const httpsOptions = {
     cert: fs.readFileSync(path.resolve('src/ssl/buenaventuraturistica_com.crt')),
     ca: fs.readFileSync(path.resolve('src/ssl/buenaventuraturistica_com.ca-bundle')),
     key: fs.readFileSync(path.resolve('src/ssl/buenaventuraturistica.key'))
-}*/
+}
 
 const app = express();
 const httpServer = http.createServer(app);
-//const httpsServer = https.createServer(httpsOptions, app);
+const httpsServer = https.createServer(httpsOptions, app);
 
 
 
@@ -73,9 +73,9 @@ app.use(flash());
  *  tal, redirige al visitante  
  * */
 app.use((req, res, next) => {
-    //if(req.protocol === 'http'){
-    //    res.redirect(301, `https://${req.headers.host}${req.url}`);
-    //}
+    if(req.protocol === 'http'){
+        res.redirect(301, `https://${req.headers.host}${req.url}`);
+    }
     next();
 });
 
@@ -102,9 +102,9 @@ httpServer.listen(httpPort, hostname, () => {
     console.log(`Server Instance Running ${httpPort}...`);
 });
 
-//httpsServer.listen(httpsPort, hostname, () => {
-//    console.log(`Server Instance Running ${httpsPort}...`);
-//});
+httpsServer.listen(httpsPort, hostname, () => {
+    console.log(`Server Instance Running ${httpsPort}...`);
+});
 
 /* TEST EN LOCAL*/
 //app.listen(app.get('port'), () => {

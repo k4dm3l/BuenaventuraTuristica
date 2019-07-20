@@ -20,9 +20,9 @@ const httpPort = 80;
 const httpsPort = 443;
 
 const httpsOptions = {
-    cert: fs.readFileSync('./ssl/buenaventuraturistica_com.crt'),
-    ca: fs.readFileSync('./ssl/buenaventuraturistica_com.ca-bundle'),
-    key: fs.readFileSync('./ssl/buenaventuraturistica.key')
+    cert: fs.readFileSync(path.resolve('./ssl/buenaventuraturistica_com.crt')),
+    ca: fs.readFileSync(path.resolve('./ssl/buenaventuraturistica_com.ca-bundle')),
+    key: fs.readFileSync(path.resolve('./ssl/buenaventuraturistica.key'))
 }
 
 const app = express();

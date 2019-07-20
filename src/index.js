@@ -28,7 +28,7 @@ const httpsOptions = {
 
 const app = express();
 const httpServer = http.createServer(app);
-const httpsServer = https.createServer(httpsOptions, app);
+//const httpsServer = https.createServer(httpsOptions, app);
 
 
 
@@ -101,9 +101,10 @@ app.use(function(req, res){
 httpServer.listen(httpPort, hostname, () => {
     console.log(`Server Instance Running ${httpPort}...`);
 });
-httpsServer.listen(httpsPort, hostname, () => {
-    console.log(`Server Instance Running ${httpsPort}...`);
-});
+
+//httpsServer.listen(httpsPort, hostname, () => {
+//    console.log(`Server Instance Running ${httpsPort}...`);
+//});
 
 /* TEST EN LOCAL*/
 //app.listen(app.get('port'), () => {
